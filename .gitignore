@@ -3,8 +3,8 @@ conf.d/default.conf
 !conf.d/php.conf
 !conf.d/globals.conf
 !apps
-!sites-enabled
-site-enabled/*
-sites-available/*
-!sites/available/localhost.conf
+#!sites-enabled
+#sites-enabled/*
+#sites-available/*
+#!sites/available/localhost.conf
 !edge_*
