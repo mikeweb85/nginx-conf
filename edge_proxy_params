@@ -1,0 +1,38 @@
+set $x_forwarded_host $host;
+set $x_forwarded_for $x_real_ip;
+set $x_forwarded_proto $scheme;
+
+if ($http_x_real_ip) {
+  set $x_real_ip $http_x_real_ip;
+}
+
+if ($http_x_forwarded_host) {
+  set $x_forwarded_host $http_x_forwarded_host;
+}
+
+if ($http_x_forwarded_for) {
+  set $x_forwarded_for "${http_x_forwarded_for},${remote_addr}";
+}
+
+if ($http_x_forwarded_proto) {
+  set $x_forwarded_proto $http_x_forwarded_proto;
+}
+
+client_max_body_size 50M;
+
+proxy_http_version 1.1;
+proxy_buffering on;
+proxy_buffers 12 12k;
+proxy_read_timeout       3500;
+proxy_connect_timeout    3250;
+
+proxy_set_header Upgrade $http_upgrade;
+proxy_set_header Connection 'upgrade';
+proxy_set_header Host $host;
+proxy_set_header X-Local true;
+proxy_set_header X-Real-IP $x_real_ip;
+proxy_set_header X-Forwarded-For $x_forwarded_for,127.0.0.1;
+proxy_set_header X-Forwarded-Proto $x_forwarded_proto;
+
+proxy_cache_bypass $http_upgrade;
+
