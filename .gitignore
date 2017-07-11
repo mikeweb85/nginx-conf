@@ -1,10 +1,12 @@
-!.gitignore
-conf.d/default.conf
-!conf.d/php.conf
+# conf.d
+conf.d/*
 !conf.d/globals.conf
-!apps
-#!sites-enabled
-#sites-enabled/*
-#sites-available/*
-#!sites/available/localhost.conf
-!edge_*
+!conf.d/php.conf
+
+# sites-enabled
+sites-enabled/*
+!sites-enabled/empty
+
+# sites-available
+sites-available/*
+!sites-available/localhost.conf
