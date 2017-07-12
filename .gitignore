@@ -1,7 +1,6 @@
-# conf.d
-conf.d/*
-!conf.d/globals.conf
-!conf.d/php.conf
+# ssl
+ssl/*
+!ssl/empty
 
 # sites-enabled
 sites-enabled/*

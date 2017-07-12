@@ -1,0 +1,15 @@
+# Before enabling this file, ngx_http_uploadprogress_module
+# must be compiled with NGINX or as a dynamic module.
+# Load ngx_http_uploadprogress_module by uncommenting its line in you nginx.conf
+
+# Reserve 8MB under the name 'proxied' to track uploads
+upload_progress proxied 8m;
+
+location /upload/progress {
+  access_log off;
+
+  upload_progress_header X-Upload-ID
+
+  # report uploads tracked in the 'proxied' zone
+  report_uploads proxied;
+}

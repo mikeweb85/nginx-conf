@@ -1,0 +1,17 @@
+# Before enabling this file, ngx_http_vhost_traffic_status_module
+# must be compiled with NGINX or as a dynamic module.
+# Load ngx_http_vhost_traffic_status_module by uncommenting its line in you nginx.conf
+# `vhost_traffic_status_zone` must also be uncommented from the main nginx.conf
+location /nginx/full/status {
+  access_log off;
+
+  include edge/edge-ip-restrictions;
+  # include edge/edgecast-ip-restrictions;
+  # include edge/cloudflare-ip-restrictions;
+  deny all;
+
+  include edge/headers-nocache.conf;
+  
+  vhost_traffic_status_display;
+  vhost_traffic_status_display_format html;
+}
