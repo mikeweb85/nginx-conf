@@ -29,6 +29,10 @@ find . -type f -exec sed -i "s|{NODE-NAME}|{NODE}|g" {} \;
 find . -type f -exec sed -i "s|{HOSTNAME}|$(hostname -s)|g" {} \;
 find . -type f -exec sed -i "s|{SELF-IP}|$(ifconfig  | grep 'inet addr:'| grep -v '127.0.0.1' | cut -d: -f2 | awk '{ print $1}')|g" {} \;
 ```
+Create cache directories
+```
+mkdir -p /tmp/nginx/cache/{client_body,fastcgi,fastcgi_tmp,proxy,proxy_tmp}
+```
 
 Once the files have been updated, enable your first virtual server.
 ```
