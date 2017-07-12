@@ -1,4 +1,4 @@
-## Nginx Installation
+## Nginx Installation ##
 Create the REPO file
 ---
 `vi /etc/yum.repos.d/nginx.repo`
@@ -16,7 +16,7 @@ Install the Nginx packages.
 ---
 
 
-## Configuration files##
+## Configuration files ##
 `cd /etc/nginx`
 ---
 `mv nginx.conf nginx.conf.orig
