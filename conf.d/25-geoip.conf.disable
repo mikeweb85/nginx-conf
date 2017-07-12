@@ -1,0 +1,60 @@
+
+# GeoIP general settings
+geoip_proxy_recursive on;
+geoip_country   /etc/nginx/geoip/GeoIP.dat;
+geoip_city      /etc/nginx/geoip/GeoLiteCity.dat;
+
+
+# FastCGI Additional Params
+fastcgi_param HTTP_GEOIP_COUNTRY_CODE        $geoip_country_code;
+fastcgi_param HTTP_GEOIP_COUNTRY_NAME        $geoip_country_name;
+fastcgi_param HTTP_GEOIP_CITY                $geoip_city;
+fastcgi_param HTTP_GEOIP_REGION              $geoip_region;
+fastcgi_param HTTP_GEOIP_POSTAL_CODE         $geoip_postal_code;
+fastcgi_param HTTP_GEOIP_AREA_CODE           $geoip_area_code;
+fastcgi_param HTTP_GEOIP_CITY_CONTINENT_CODE $geoip_city_continent_code;
+
+
+# Cloudflare Proxy Settings
+geoip_proxy    103.21.244.0/22;
+geoip_proxy    103.22.200.0/22;
+geoip_proxy    103.31.4.0/22;
+geoip_proxy    104.16.0.0/12;
+geoip_proxy    108.162.192.0/18;
+geoip_proxy    131.0.72.0/22;
+geoip_proxy    141.101.64.0/18;
+geoip_proxy    162.158.0.0/15;
+geoip_proxy    172.64.0.0/13;
+geoip_proxy    173.245.48.0/20;
+geoip_proxy    188.114.96.0/20;
+geoip_proxy    190.93.240.0/20;
+geoip_proxy    197.234.240.0/22;
+geoip_proxy    198.41.128.0/17;
+
+
+# EdgeCast Proxy Settings
+geoip_proxy    5.104.64.0/21;
+geoip_proxy    46.22.64.0/20;
+geoip_proxy    61.49.62.128/25;
+geoip_proxy    61.221.181.64/26;
+geoip_proxy    68.232.32.0/20;
+geoip_proxy    72.21.80.0/20;
+geoip_proxy    88.194.45.128/26;
+geoip_proxy    93.184.208.0/20;
+geoip_proxy    101.226.203.0/24;
+geoip_proxy    108.161.240.0/20
+geoip_proxy    110.232.176.0/22;
+geoip_proxy    117.18.232.0/21;
+geoip_proxy    117.103.183.0/24;
+geoip_proxy    120.132.137.0/25;
+geoip_proxy    121.156.59.224/27;
+geoip_proxy    121.189.46.0/23;
+geoip_proxy    152.195.0.0/16;
+geoip_proxy    180.240.184.0/24;
+geoip_proxy    192.16.0.0/18;
+geoip_proxy    192.30.0.0/19;
+geoip_proxy    192.229.128.0/17;
+geoip_proxy    194.255.210.64/26;
+geoip_proxy    198.7.16.0/20;
+geoip_proxy    203.74.4.64/26;
+geoip_proxy    213.64.234.0/2;

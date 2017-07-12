@@ -1,3 +1,9 @@
+# global
+*.old
+*.bck
+*.back
+*.orig
+
 # ssl
 ssl/*
 !ssl/empty
@@ -9,3 +15,30 @@ sites-enabled/*
 # sites-available
 sites-available/*
 !sites-available/localhost.conf
+
+# logs
+logs
+logs/*
+
+# geoip
+geoip/*
+!geoip/empty
+
+# modules
+modules
+modules/*
+
+# conf.d
+default.conf
+ssl.conf
+manual.conf
+welcome.conf
+
+# base files
+fastcgi_params
+koi-utf
+koi-win
+mime.types
+scgi_params
+uwsgi_params
+win-utf
