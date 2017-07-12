@@ -57,4 +57,5 @@ geoip_proxy    192.229.128.0/17;
 geoip_proxy    194.255.210.64/26;
 geoip_proxy    198.7.16.0/20;
 geoip_proxy    203.74.4.64/26;
-geoip_proxy    213.64.234.0/2;
+geoip_proxy    213.64.234.0/26;
+geoip_proxy    213.175.80.0/24;
