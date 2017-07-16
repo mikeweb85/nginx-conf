@@ -5,34 +5,34 @@
 *.orig
 
 # ssl
-ssl/*
+ssl/**
 !ssl/empty
 
 # sites-enabled
-sites-enabled/*
+sites-enabled/**
 !sites-enabled/empty
 
 # sites-available
-sites-available/*
+sites-available/**
 !sites-available/localhost.conf
 
 # logs
 logs
-logs/*
+logs/**
 
 # geoip
-geoip/*
+geoip/**
 !geoip/empty
 
 # modules
 modules
-modules/*
+modules/**
 
 # conf.d
-default.conf
-ssl.conf
-manual.conf
-welcome.conf
+conf.d/default.conf
+conf.d/ssl.conf
+conf.d/manual.conf
+conf.d/welcome.conf
 
 # base files
 fastcgi_params
