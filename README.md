@@ -31,7 +31,7 @@ find . -type f -exec sed -i "s|{SELF-IP}|$(ifconfig  | grep 'inet addr:'| grep -
 ```
 Create cache directories
 ```
-mkdir -p /tmp/nginx/cache/{client_body,fastcgi,fastcgi_tmp,proxy,proxy_tmp}
+mkdir -p /var/nginx/cache/{client_body,fastcgi,fastcgi_tmp,proxy,proxy_tmp}
 ```
 
 Once the files have been updated, enable your first virtual server.
