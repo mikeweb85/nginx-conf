@@ -54,15 +54,14 @@ gunzip GeoLiteCity.dat.gz
 ## Additional Modules
 Nginx dynamic modules are version specific. Get the installed version then download its source.
 ```
-cd /root/
+mkdir -p /opt/nginx/nginx-modules
+cd /opt/nginx/
 nginx -v
-```
-```
+
 yum --nogpgcheck -y install cmake gcc gcc-c++ glib2-devel zlib-devel pcre-devel openssl-devel
 wget http://nginx.org/download/nginx-{VERSION}.tar.gz
 tar -xf nginx-{VERSION}.tar.gz
 
-mkdir nginx-modules
 cd nginx-modules
 ```
 
@@ -97,19 +96,19 @@ tar -xf nginx-headers-more-module-module-{RELEASE}.tar.gz
 ## Compiling the Modules
 Each module will extract itself to a separate directory. For every module you will need to include the following template for the final configure command:
 ```
---add-dynamic-module=/root/nginx-modules/{MODULE-DIR}
+--add-dynamic-module=/opt/nginx/nginx-modules/{MODULE-DIR}
 ```
 
 Now we take what we have done so far and begin the build
 ```
-cd /root/nginx-{VERSION}
+cd /opt/nginx/nginx-{VERSION}
 ./configure --with-compat {ADD-DYNAMIC-MODULES}
 make modules
 ```
 
 If the compilation was successful:
 ```
-cp -r /root/nginx-{VERSION}/objs/*.so /etc/nginx/modules/
+cp -r /opt/nginx/nginx-{VERSION}/objs/*.so /etc/nginx/modules/
 ```
 
 

@@ -5,16 +5,6 @@ geoip_country   /etc/nginx/geoip/GeoIP.dat;
 geoip_city      /etc/nginx/geoip/GeoLiteCity.dat;
 
 
-# FastCGI Additional Params
-fastcgi_param HTTP_GEOIP_COUNTRY_CODE        $geoip_country_code;
-fastcgi_param HTTP_GEOIP_COUNTRY_NAME        $geoip_country_name;
-fastcgi_param HTTP_GEOIP_CITY                $geoip_city;
-fastcgi_param HTTP_GEOIP_REGION              $geoip_region;
-fastcgi_param HTTP_GEOIP_POSTAL_CODE         $geoip_postal_code;
-fastcgi_param HTTP_GEOIP_AREA_CODE           $geoip_area_code;
-fastcgi_param HTTP_GEOIP_CITY_CONTINENT_CODE $geoip_city_continent_code;
-
-
 # Cloudflare Proxy Settings
 geoip_proxy    103.21.244.0/22;
 geoip_proxy    103.22.200.0/22;
