@@ -89,7 +89,7 @@ Docs: https://github.com/openresty/headers-more-nginx-module
 Releases: https://github.com/openresty/headers-more-nginx-module/releases
 ```
 wget -Onginx-headers-more-module-{RELEASE}.tar.gz  https://github.com/openresty/headers-more-nginx-module/archive/v{RELEASE}.tar.gz
-tar -xf nginx-headers-more-module-module-{RELEASE}.tar.gz
+tar -xf nginx-headers-more-module-{RELEASE}.tar.gz
 ```
 
 
