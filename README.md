@@ -27,7 +27,7 @@ rm -Rf ./.git*
 find . -type f -exec sed -i "s|{NODE-ENV}|{ENV}|g" {} \;
 find . -type f -exec sed -i "s|{NODE-NAME}|{NODE}|g" {} \;
 find . -type f -exec sed -i "s|{HOSTNAME}|$(hostname -s)|g" {} \;
-find . -type f -exec sed -i "s|{SELF-IP}|$(ifconfig  | grep 'inet addr:'| grep -v '127.0.0.1' | cut -d: -f2 | awk '{ print $1}')|g" {} \;
+find . -type f -exec sed -i "s|{SELF-IP}|$(hostname -i|g" {} \;
 ```
 Create cache directories
 ```
