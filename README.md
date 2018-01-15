@@ -32,6 +32,7 @@ find . -type f -exec sed -i "s|{SELF-IP}|$(hostname -i)|g" {} \;
 Create cache directories
 ```
 mkdir -p /var/nginx/cache/{client_body,fastcgi,fastcgi_tmp,proxy,proxy_tmp}
+chown -R nginx:nginx /var/nginx/cache
 ```
 
 Once the files have been updated, enable your first virtual server.
