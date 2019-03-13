@@ -21,8 +21,8 @@ logs
 logs/**
 
 # geoip
-geoip/**
-!geoip/empty
+#geoip/**
+#!geoip/empty
 
 # modules
 modules
