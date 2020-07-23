@@ -10,7 +10,7 @@ enabled=1
 
 Install the Nginx packages.
 ```
-yum --nogpgcheck -y install nginx nginx-module-geoip nginx-module-image-filter
+yum --nogpgcheck -y install nginx nginx-module-perl nginx nginx-module-geoip nginx-module-image-filter
 ```
 
 
@@ -29,6 +29,12 @@ find . -type f -exec sed -i "s|{NODE-NAME}|{NODE}|g" {} \;
 find . -type f -exec sed -i "s|{HOSTNAME}|$(hostname -s)|g" {} \;
 find . -type f -exec sed -i "s|{SELF-IP}|$(hostname -i)|g" {} \;
 ```
+
+Symlink the logs directory
+```
+ln -s /var/log/nginx logs
+```
+
 Create cache directories
 ```
 mkdir -p /var/nginx/cache/{client_body,fastcgi,fastcgi_tmp,proxy,proxy_tmp}
@@ -40,17 +46,6 @@ Once the files have been updated, enable your first virtual server.
 cd /etc/nginx/sites-enabled
 ln -s ../sites-available/localhost.conf
 ```
-
-### GeoIP Data
-The module is disabled by default, but having these files ready can make it easy to simply enable the file when needed.
-```
-cd /etc/nginx/geoip
-wget http://geolite.maxmind.com/download/geoip/database/GeoLiteCountry/GeoIP.dat.gz
-wget http://geolite.maxmind.com/download/geoip/database/GeoLiteCity.dat.gz
-gunzip GeoIP.dat.gz
-gunzip GeoLiteCity.dat.gz
-```
-
 
 ## Additional Modules
 Nginx dynamic modules are version specific. Get the installed version then download its source.
@@ -93,6 +88,22 @@ wget -Onginx-headers-more-module-{RELEASE}.tar.gz  https://github.com/openresty/
 tar -xf nginx-headers-more-module-{RELEASE}.tar.gz
 ```
 
+### Redis
+Docs: https://www.nginx.com/resources/wiki/modules/redis/
+```
+wget https://people.freebsd.org/~osa/ngx_http_redis-0.3.9.tar.gz
+tar -xf ngx_http_redis-0.3.9.tar.gz
+```
+
+### Redis2
+Docs: https://github.com/openresty/redis2-nginx-module
+
+Releases: https://github.com/openresty/redis2-nginx-module/releases
+```
+wget -Onginx-redis2-module-{RELEASE}.tar.gz  https://github.com/openresty/redis2-nginx-module/archive/v{RELEASE}.tar.gz
+tar -xf nginx-redis2-module-{RELEASE}.tar.gz
+```
+
 
 ## Compiling the Modules
 Each module will extract itself to a separate directory. For every module you will need to include the following template for the final configure command:
@@ -109,7 +120,7 @@ make modules
 
 If the compilation was successful:
 ```
-cp -r /opt/nginx/nginx-{VERSION}/objs/*.so /etc/nginx/modules/
+rsync -rvh /opt/nginx/nginx-{VERSION}/objs/*.so /etc/nginx/modules/
 ```
 
 
